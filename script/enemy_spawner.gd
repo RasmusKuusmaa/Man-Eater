@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var enemy_scene: PackedScene
-@export var spawn_interval: float = 0.5
+@export var spawn_interval: float = 0.1
 @export var spawn_radius: float = 500
 
 var player: Node2D
@@ -19,6 +19,7 @@ func spawn_enemy():
 		return
 		
 	var enemy = enemy_scene.instantiate()
+	enemy.add_to_group("enemy")
 	
 	var angle = randf() * TAU
 	var offset = Vector2(cos(angle), sin(angle)) * spawn_radius
