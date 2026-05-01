@@ -21,3 +21,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	
+
+
+func _on_eat_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("enemy"):
+		eat_enemy(body)
+		
+func eat_enemy(enemy):
+	enemy.queue_free()

@@ -33,6 +33,6 @@ tile_set = SubResource("TileSet_sugp2")
 
 [node name="Player" parent="." unique_id=1552295651 groups=["player"] instance=ExtResource("2_0wfyh")]
 
-[node name="Enemy" parent="." unique_id=877348329 instance=ExtResource("3_sugp2")]
+[node name="Enemy" parent="." unique_id=877348329 groups=["enemy"] instance=ExtResource("3_sugp2")]
 position = Vector2(186, 46)
 scale = Vector2(10, 10)

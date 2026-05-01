@@ -5,6 +5,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 63.226597
+
 [node name="Player" type="CharacterBody2D" unique_id=1552295651]
 script = ExtResource("1_g2els")
 
@@ -17,3 +20,11 @@ scale = Vector2(5.6622787, 5.7811136)
 shape = SubResource("CircleShape2D_dqkch")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=179255632]
+
+[node name="EatArea" type="Area2D" parent="." unique_id=71450772]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EatArea" unique_id=419940197]
+scale = Vector2(0.9343571, 0.9343571)
+shape = SubResource("CircleShape2D_g2els")
+
+[connection signal="body_entered" from="EatArea" to="." method="_on_eat_area_body_entered"]
