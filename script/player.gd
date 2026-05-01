@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED: float = 1000
+var GROW_FACTOR: float = 1.1
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.ZERO
@@ -29,3 +30,7 @@ func _on_eat_area_body_entered(body: Node2D) -> void:
 		
 func eat_enemy(enemy):
 	enemy.queue_free()
+	grow()
+
+func grow():
+	scale *= GROW_FACTOR
