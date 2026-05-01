@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var SPEED: float = 1000
 var GROW_FACTOR: float = 1.1
+var scale_cap:float = 20.0
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.ZERO
@@ -33,4 +34,7 @@ func eat_enemy(enemy):
 	grow()
 
 func grow():
-	scale *= GROW_FACTOR
+	var new_scale = scale * GROW_FACTOR
+	var clamped = min(new_scale.x, scale_cap)
+	
+	scale = Vector2(clamped, clamped)
