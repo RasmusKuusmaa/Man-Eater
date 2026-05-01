@@ -6,7 +6,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1552295651]
-scale = Vector2(0.24000135, 0.24000135)
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=71145220]
@@ -16,3 +15,5 @@ texture = ExtResource("2_qhqgy")
 position = Vector2(0, -1)
 scale = Vector2(5.6622787, 5.7811136)
 shape = SubResource("CircleShape2D_dqkch")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=179255632]
