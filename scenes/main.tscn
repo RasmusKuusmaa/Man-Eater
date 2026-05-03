@@ -42,3 +42,7 @@ position = Vector2(186, 46)
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=1837774683]
 script = ExtResource("4_jyhfs")
 enemy_scene = ExtResource("3_sugp2")
+
+[node name="EnemySpawnTimer" type="Timer" parent="." unique_id=213809970]
+wait_time = 0.5
+autostart = true
