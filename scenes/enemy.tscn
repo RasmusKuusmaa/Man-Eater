@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://hvqawgv7f8jx"]
 
-[ext_resource type="Texture2D" uid="uid://bupgmp2n3pv5d" path="res://assets/microFantasy.v0.1/characters/basic/basic_run_04.png" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://cjf5744yui254" path="res://script/enemy.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://b3rm3kyw57r2u" path="res://assets/ManEaterEnemy_vol1.png" id="2_md0e3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
 radius = 4.0
@@ -15,4 +15,4 @@ position = Vector2(-2, 4)
 shape = SubResource("CircleShape2D_md0e3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=758198144]
-texture = ExtResource("1_7p1mj")
+texture = ExtResource("2_md0e3")
