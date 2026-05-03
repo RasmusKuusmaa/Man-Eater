@@ -3,6 +3,12 @@
 [ext_resource type="Script" uid="uid://byxycb06is4fs" path="res://script/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://b4ycrp26n815f" path="res://assets/ManEaterPlayer_vol1.png" id="2_g2els"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2els"]
+bg_color = Color(0.9340052, 0.8602118, 0.9285841, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhqgy"]
+bg_color = Color(0.60571337, 0.2359989, 0.21618554, 1)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
@@ -10,6 +16,18 @@ radius = 63.226597
 
 [node name="Player" type="CharacterBody2D" unique_id=1552295651]
 script = ExtResource("1_g2els")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=350282276]
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer" unique_id=464723518]
+z_index = 100
+offset_left = 16.0
+offset_top = 11.0
+offset_right = 194.0
+offset_bottom = 38.0
+theme_override_styles/background = SubResource("StyleBoxFlat_g2els")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qhqgy")
+value = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=71145220]
 scale = Vector2(10, 10)

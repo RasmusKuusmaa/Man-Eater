@@ -2,7 +2,11 @@ extends CharacterBody2D
 
 @export var SPEED: float = 1000
 var GROW_FACTOR: float = 1.1
-var scale_cap:float = 20.0
+var scale_cap:float = 8
+var max_health := 100
+var health := max_health
+
+@onready var health_bar = $CanvasLayer/HealthBar
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.ZERO
@@ -33,6 +37,7 @@ func _on_eat_area_body_entered(body: Node2D) -> void:
 		eat_enemy(body)
 		
 func eat_enemy(enemy):
+	take_damage(5)
 	enemy.queue_free()
 	grow()
 
@@ -41,3 +46,8 @@ func grow():
 	var clamped = min(new_scale.x, scale_cap)
 	
 	scale = Vector2(clamped, clamped)
+
+func take_damage(amount):
+	health -= amount
+	health  = clamp(health, 0, max_health)
+	health_bar.value = health
