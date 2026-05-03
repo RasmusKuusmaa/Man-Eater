@@ -18,6 +18,9 @@ func _physics_process(delta: float) -> void:
 		direction.y -= 1
 		
 	direction = direction.normalized()
+	
+	if direction.x != 0:
+		$Sprite2D.flip_h = direction.x  < 0
 	velocity = direction * SPEED
 	
 	move_and_slide()
