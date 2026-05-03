@@ -7,6 +7,8 @@ var max_health := 100
 var health := max_health
 
 @onready var health_bar = $CanvasLayer/HealthBar
+var death_screen_scene = preload("res://scenes/death_screen.tscn")
+var death_screen
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.ZERO
@@ -37,7 +39,7 @@ func _on_eat_area_body_entered(body: Node2D) -> void:
 		eat_enemy(body)
 		
 func eat_enemy(enemy):
-	take_damage(5)
+	take_damage(20)
 	enemy.queue_free()
 	grow()
 
@@ -51,3 +53,10 @@ func take_damage(amount):
 	health -= amount
 	health  = clamp(health, 0, max_health)
 	health_bar.value = health
+	if health <= 0:
+		_on_player_died()
+	
+func _on_player_died():
+	death_screen = death_screen_scene.instantiate()
+	add_child(death_screen)
+	get_tree().paused = true	
