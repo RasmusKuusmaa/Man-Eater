@@ -1,12 +1,15 @@
 extends CharacterBody2D
 
+@onready var health_bar = $CanvasLayer/HealthBar
+
 @export var SPEED: float = 1000
+@export var min_speed = 200
 var GROW_FACTOR: float = 1.1
 var scale_cap:float = 8
 var max_health := 100
 var health := max_health
+var dmg_speed_effect = 100
 
-@onready var health_bar = $CanvasLayer/HealthBar
 var death_screen_scene = preload("res://scenes/death_screen.tscn")
 var death_screen
 
@@ -39,7 +42,7 @@ func _on_eat_area_body_entered(body: Node2D) -> void:
 		eat_enemy(body)
 		
 func eat_enemy(enemy):
-	take_damage(20)
+	take_damage(2)
 	enemy.queue_free()
 	grow()
 
@@ -53,6 +56,7 @@ func take_damage(amount):
 	health -= amount
 	health  = clamp(health, 0, max_health)
 	health_bar.value = health
+	SPEED = max(SPEED - dmg_speed_effect, min_speed)
 	if health <= 0:
 		_on_player_died()
 	
