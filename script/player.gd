@@ -9,6 +9,7 @@ var scale_cap:float = 8
 var max_health := 100
 var health := max_health
 var dmg_speed_effect = 100
+var score := 0
 
 var death_screen_scene = preload("res://scenes/death_screen.tscn")
 var death_screen
@@ -64,3 +65,7 @@ func _on_player_died():
 	death_screen = death_screen_scene.instantiate()
 	add_child(death_screen)
 	get_tree().paused = true	
+
+func add_score(gain: int):
+	score += gain
+	print(score) 
