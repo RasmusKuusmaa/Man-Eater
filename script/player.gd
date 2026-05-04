@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var health_bar = $CanvasLayer/HealthBar
+@onready var health_bar = $UI/HealthBar
 
 @export var SPEED: float = 1000
 @export var min_speed = 200
