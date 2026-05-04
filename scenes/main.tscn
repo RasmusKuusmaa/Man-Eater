@@ -5,7 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cq8qgu76gr00s" path="res://assets/ManEaterTileMap_vol1.png" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://hvqawgv7f8jx" path="res://scenes/enemy.tscn" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://inr3nq37oeft" path="res://script/enemy_spawner.gd" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://88n0ht0ypyn8" path="res://scenes/coin.tscn" id="6_tefeu"]
+[ext_resource type="Script" uid="uid://cgy3l6545y00m" path="res://script/coin_spawner.gd" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://88n0ht0ypyn8" path="res://scenes/coin.tscn" id="7_o6xl0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
 texture = ExtResource("2_tbgi4")
@@ -35,5 +36,9 @@ enemy_scene = ExtResource("3_sugp2")
 wait_time = 0.5
 autostart = true
 
-[node name="Coin" parent="." unique_id=457505823 instance=ExtResource("6_tefeu")]
-position = Vector2(721, -20)
+[node name="CoinSpawner" type="Node2D" parent="." unique_id=431688518]
+script = ExtResource("6_tefeu")
+coin_scene = ExtResource("7_o6xl0")
+
+[node name="CoinSpawnTimer" type="Timer" parent="." unique_id=1113939667]
+autostart = true
