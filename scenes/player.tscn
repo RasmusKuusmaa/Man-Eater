@@ -29,6 +29,12 @@ theme_override_styles/background = SubResource("StyleBoxFlat_g2els")
 theme_override_styles/fill = SubResource("StyleBoxFlat_qhqgy")
 value = 100.0
 
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=1258515316]
+offset_left = 1071.0
+offset_top = 4.0
+offset_right = 1115.0
+offset_bottom = 53.0
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=71145220]
 scale = Vector2(10, 10)
 texture = ExtResource("2_g2els")

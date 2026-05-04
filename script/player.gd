@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var health_bar = $UI/HealthBar
+@onready var score_label = $UI/ScoreLabel
 
 @export var SPEED: float = 1000
 @export var min_speed = 200
@@ -13,6 +14,10 @@ var score := 0
 
 var death_screen_scene = preload("res://scenes/death_screen.tscn")
 var death_screen
+
+func _ready() -> void:
+	score_label.text = "Score: " + str(score)
+	health_bar.value = health
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.ZERO
@@ -69,3 +74,4 @@ func _on_player_died():
 func add_score(gain: int):
 	score += gain
 	print(score) 
+	score_label.text = "score: " + str(score)
