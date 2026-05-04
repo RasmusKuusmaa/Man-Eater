@@ -14,6 +14,9 @@ bg_color = Color(0.60571337, 0.2359989, 0.21618554, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 63.226597
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
+radius = 100.2447
+
 [node name="Player" type="CharacterBody2D" unique_id=1552295651]
 script = ExtResource("1_g2els")
 
@@ -45,6 +48,7 @@ scale = Vector2(5.6622787, 5.7811136)
 shape = SubResource("CircleShape2D_dqkch")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=179255632]
+zoom = Vector2(0.6, 0.6)
 
 [node name="EatArea" type="Area2D" parent="." unique_id=71450772]
 
@@ -52,4 +56,12 @@ shape = SubResource("CircleShape2D_dqkch")
 scale = Vector2(0.9343571, 0.9343571)
 shape = SubResource("CircleShape2D_g2els")
 
+[node name="AttackArea" type="Area2D" parent="." unique_id=1607400715]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=2018253837]
+position = Vector2(113, -2)
+shape = SubResource("CircleShape2D_qhqgy")
+
 [connection signal="body_entered" from="EatArea" to="." method="_on_eat_area_body_entered"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
