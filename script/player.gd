@@ -3,9 +3,11 @@ extends CharacterBody2D
 @onready var health_bar = $UI/HealthBar
 @onready var score_label = $UI/ScoreLabel
 @onready var attack_area = $AttackArea
+@onready var attack_collider = $AttackArea/CollisionShape2D
 
 @export var SPEED: float = 1000
 @export var min_speed = 200
+
 
 var GROW_FACTOR: float = 1.1
 var scale_cap:float = 8
@@ -42,7 +44,14 @@ func _physics_process(delta: float) -> void:
 	direction = direction.normalized()
 	
 	if direction.x != 0:
-		$Sprite2D.flip_h = direction.x  < 0
+		if direction.x < 0:
+			$Sprite2D.flip_h = true
+			attack_collider.position.x = -abs(attack_collider.position.x)
+		else:
+			$Sprite2D.flip_h = false
+			attack_collider.position.x = abs(attack_collider.position.x)
+
+		
 	velocity = direction * SPEED
 	
 	
