@@ -141,3 +141,7 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 		if body.has_method("take_damage"):
 			body.take_damage(attack_damage)
 			print("attatcked")
+
+
+func shrink(scl: float):
+	scale = scale * scl

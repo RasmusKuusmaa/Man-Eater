@@ -1,12 +1,13 @@
 [gd_scene format=4 uid="uid://70upidfgthyr"]
 
-[ext_resource type="Script" uid="uid://dbcmk4gfcfpt2" path="res://script/main.gd" id="1_tbgi4"]
+[ext_resource type="Script" path="res://script/main.gd" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cuw0iy84gimvk" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://cq8qgu76gr00s" path="res://assets/ManEaterTileMap_vol1.png" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://hvqawgv7f8jx" path="res://scenes/enemy.tscn" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://inr3nq37oeft" path="res://script/enemy_spawner.gd" id="4_jyhfs"]
-[ext_resource type="Script" uid="uid://cgy3l6545y00m" path="res://script/coin_spawner.gd" id="6_tefeu"]
+[ext_resource type="Script" path="res://script/coin_spawner.gd" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://88n0ht0ypyn8" path="res://scenes/coin.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://c6immapdpdxxv" path="res://scenes/potion_shrink.tscn" id="8_tipki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
 texture = ExtResource("2_tbgi4")
@@ -42,3 +43,6 @@ coin_scene = ExtResource("7_o6xl0")
 
 [node name="CoinSpawnTimer" type="Timer" parent="." unique_id=1113939667]
 autostart = true
+
+[node name="PotionShrink" parent="." unique_id=1998244396 instance=ExtResource("8_tipki")]
+position = Vector2(12, -355)

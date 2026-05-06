@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c6immapdpdxxv"]
+
+[ext_resource type="Script" uid="uid://beyu54252ks86" path="res://script/potion_shrink.gd" id="1_e1xty"]
+[ext_resource type="Texture2D" uid="uid://b08saagscyknd" path="res://icon.svg" id="1_n2mpv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1xty"]
+radius = 82.036575
+
+[node name="PotionShrink" type="Area2D" unique_id=1998244396]
+script = ExtResource("1_e1xty")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=517469514]
+texture = ExtResource("1_n2mpv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=271617564]
+shape = SubResource("CircleShape2D_e1xty")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
